@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Pokemon from './Pokemon';
 
 // Page that lets us increase or decrease
 // How many pokemon are on screen
@@ -19,10 +20,31 @@ class App extends React.Component {
     }
   }
 
+  exampleFunction(){
+    console.log("Hello world, from button click");
+  }
+
+  decreasePokemonCount(currentCount){
+    if (this.state.pokemonCount > 0){
+      this.setState({pokemonCount: this.state.pokemonCount - 1}); 
+    }
+  }
+
   render(){
     return(
       <div>
         <h1>Pokemon page</h1>
+
+        {/* <button onClick={this.exampleFunction}>Increase Pokemon count</button>
+        <button onClick={() => {console.log("Hello world from inline expression")}}>Decrease Pokemon count</button> */}
+
+        <button onClick={() => {this.setState({pokemonCount: this.s})}}>Increase Pokemon count</button>
+        <button onClick={this.decreasePokemonCount(this.state.pokemonCount)}>
+          Decrease Pokemon count
+        </button>
+
+        <Pokemon></Pokemon>
+
       </div>
     )
   }
